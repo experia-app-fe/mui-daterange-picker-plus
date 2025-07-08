@@ -4,7 +4,7 @@
 
 # MUI DateRange Picker Plus
 
-An advanced and highly customizable Date Range Picker component for Material-UI (MUI).
+An advanced and highly customizable Date Range Picker component for Material-UI (MUI), supports React v19 and MUI v7.
 
 [![npm version](https://img.shields.io/npm/v/mui-daterange-picker-plus?style=flat-square)](https://www.npmjs.com/package/mui-daterange-picker-plus)
 [![License](https://img.shields.io/npm/l/mui-daterange-picker-plus.svg?style=flat-square)](https://opensource.org/licenses/MIT)
