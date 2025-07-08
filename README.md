@@ -6,12 +6,8 @@
 
 An advanced and highly customizable Date Range Picker component for Material-UI (MUI), supports React v19 and MUI v7.
 
-[![npm version](https://img.shields.io/npm/v/mui-daterange-picker-plus?style=flat-square)](https://www.npmjs.com/package/mui-daterange-picker-plus)
+[![npm version](https://img.shields.io/npm/v/@experia-app-fe/mui-daterange-picker-plus?style=flat-square)](https://www.npmjs.com/package/@experia-app-fe/mui-daterange-picker-plus)
 [![License](https://img.shields.io/npm/l/mui-daterange-picker-plus.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-
-View Demo [here](https://mui-daterange-picker-plus-playground.vercel.app/demo) âœ¨
-
-[![Edit mui-daterange-picker-plus](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/p/devbox/zealous-poitras-jrckkw?file=%2Fsrc%2FPickerBase.tsx&embed=1)
 
 # Table of Contents
 
@@ -49,7 +45,7 @@ View Demo [here](https://mui-daterange-picker-plus-playground.vercel.app/demo) â
 Install the MUI Date Range Picker package via npm:
 
 ```bash
-npm install mui-daterange-picker-plus
+npm install @experia-app-fe/mui-daterange-picker-plus
 ```
 
 ## Usage with Examples
@@ -59,8 +55,8 @@ npm install mui-daterange-picker-plus
 ```jsx
 import { useState } from "react";
 import Button from "@mui/material/Button";
-import { PickerModal } from "mui-daterange-picker-plus/dist";
-import type { DateRange } from "mui-daterange-picker-plus/dist";
+import { PickerModal } from "@experia-app-fe/mui-daterange-picker-plus/dist";
+import type { DateRange } from "@experia-app-fe/mui-daterange-picker-plus/dist";
 
 export default function YourComponent() {
    // state + handlers for the Modal
@@ -126,8 +122,8 @@ export default function YourComponent() {
 
 ```jsx
 import { useState } from "react";
-import { PickerBase } from "mui-daterange-picker-plus/dist";
-import type { DateRange } from "mui-daterange-picker-plus/dist";
+import { PickerBase } from "@experia-app-fe/mui-daterange-picker-plus/dist";
+import type { DateRange } from "@experia-app-fe/mui-daterange-picker-plus/dist";
 
 export default function YourComponent() {
   // state + handlers for the DateRange Value
@@ -151,8 +147,8 @@ export default function YourComponent() {
 ```jsx
 import { useState } from "react";
 import Button from "@mui/material/Button";
-import { PickerModal } from "mui-daterange-picker-plus/dist";
-import type { DateRange } from "mui-daterange-picker-plus/dist";
+import { PickerModal } from "@experia-app-fe/mui-daterange-picker-plus/dist";
+import type { DateRange } from "@experia-app-fe/mui-daterange-picker-plus/dist";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import ArrowCircleDownIcon from "@mui/icons-material/ArrowCircleDown";
 
@@ -231,8 +227,8 @@ export default function YourComponent() {
 
 ```jsx
 import { useState } from "react";
-import { PickerBase } from "mui-daterange-picker-plus/dist";
-import type { DateRange } from "mui-daterange-picker-plus/dist";
+import { PickerBase } from "@experia-app-fe/mui-daterange-picker-plus/dist";
+import type { DateRange } from "@experia-app-fe/mui-daterange-picker-plus/dist";
 
 export default function YourComponent() {
   // state + handlers for the DateRange Value
