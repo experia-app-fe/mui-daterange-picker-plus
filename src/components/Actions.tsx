@@ -1,4 +1,4 @@
-import { styled, Button, Unstable_Grid2 as Grid2 } from "@mui/material";
+import { styled, Button, Grid } from "@mui/material";
 import type { ModalCustomProps } from "../types/utils";
 
 const CancelButtonStyled = styled(Button)(({ theme }) => ({
@@ -39,7 +39,7 @@ export const Actions = ({
 }: ActionsProps) => {
   return (
     <>
-      <Grid2>
+      <Grid>
         <CancelButtonStyled
           disableRipple
           disableElevation
@@ -48,9 +48,9 @@ export const Actions = ({
         >
           {labels?.cancel || "Cancel"}
         </CancelButtonStyled>
-      </Grid2>
+      </Grid>
 
-      <Grid2>
+      <Grid>
         <ApplyButtonStyled
           disableRipple
           disableElevation
@@ -61,7 +61,7 @@ export const Actions = ({
         >
           {labels?.apply || "Apply"}
         </ApplyButtonStyled>
-      </Grid2>
+      </Grid>
     </>
   );
 };

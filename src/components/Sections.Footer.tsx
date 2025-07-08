@@ -5,7 +5,7 @@ import {
   styled,
   useTheme,
   Typography,
-  Unstable_Grid2 as Grid2,
+  Grid,
 } from "@mui/material";
 import { Actions } from "./Actions";
 import {
@@ -61,8 +61,7 @@ export const Footer = ({
 
   return (
     <>
-      <Grid2
-        xs
+      <Grid
         container
         gap={"8px"}
         direction={{
@@ -133,20 +132,20 @@ export const Footer = ({
             {labels?.footer?.endDate || 'End Date'}
           </PreviewDateMessageTypoStyled>
         )}
-      </Grid2>
+      </Grid>
 
-      <Grid2
+      <Grid
         display={{
           xs: "block",
           md: "none",
         }}
       >
         <Divider orientation="horizontal" />
-      </Grid2>
+      </Grid>
 
-      <Grid2 xs="auto" container justifyContent={"flex-end"}>
+      <Grid container justifyContent={"flex-end"}>
         <Actions onCloseCallback={onCloseCallback} onSubmit={onSubmit} labels={labels?.actions} />
-      </Grid2>
+      </Grid>
     </>
   );
 };

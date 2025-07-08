@@ -7,7 +7,7 @@ import {
   Select,
   useTheme,
   Typography,
-  Unstable_Grid2 as Grid2,
+  Grid,
 } from "@mui/material";
 import type { SelectChangeEvent } from "@mui/material";
 import {
@@ -80,11 +80,11 @@ export const MonthHeader = ({
   );
 
   const handleMonthChange = (event: SelectChangeEvent<number>) => {
-    setDate(setMonth(currentDate, parseInt(event.target.value as string, 10)));
+    setDate(setMonth(currentDate, event.target.value as number));
   };
 
   const handleYearChange = (event: SelectChangeEvent<number>) => {
-    setDate(setYear(currentDate, parseInt(event.target.value as string, 10)));
+    setDate(setYear(currentDate, event.target.value as number));
   };
 
   const currentMonth = getMonth(currentDate);
@@ -128,7 +128,7 @@ export const MonthHeader = ({
 
   return (
     <>
-      <Grid2 xs="auto" ml="10px" container>
+      <Grid sx={{ ml: "10px" }}>
         <IconButton
           disableRipple
           size="small"
@@ -145,13 +145,10 @@ export const MonthHeader = ({
             "&:hover": {
               backgroundColor: theme.palette.grey[100],
             },
-
             "&.Mui-disabled": {
               backgroundColor: "transparent",
             },
-
             "&.Mui-upon-secondary-bg": {
-              // backgroundColor: grey[200],
               "&:hover": {
                 backgroundColor: theme.palette.grey[200],
               },
@@ -165,9 +162,9 @@ export const MonthHeader = ({
             }}
           />
         </IconButton>
-      </Grid2>
+      </Grid>
 
-      <Grid2 xsOffset={"auto"} xs={"auto"} container>
+      <Grid sx={{ ml: "auto" }}>
         <FormControl>
           <Select
             SelectDisplayProps={{
@@ -229,9 +226,9 @@ export const MonthHeader = ({
             })}
           </Select>
         </FormControl>
-      </Grid2>
+      </Grid>
 
-      <Grid2 xsOffset={"auto"} xs="auto" container>
+      <Grid sx={{ ml: "auto" }}>
         <FormControl>
           <Select
             variant="outlined"
@@ -274,16 +271,6 @@ export const MonthHeader = ({
             onChange={handleYearChange}
           >
             {generateYears(availableYearRange).map((year) => {
-              // let disabled = false;
-              //
-              // if (marker !== MARKERS.SINGLE_MONTH) {
-              //   if (isFirstYear && year > otherYear) {
-              //     disabled = true;
-              //   } else if (!isFirstYear && year < otherYear) {
-              //     disabled = true;
-              //   }
-              // }
-
               return (
                 <MenuItem key={year} value={year}>
                   <Typography
@@ -298,9 +285,9 @@ export const MonthHeader = ({
             })}
           </Select>
         </FormControl>
-      </Grid2>
+      </Grid>
 
-      <Grid2 mr="10px" xsOffset={"auto"} xs="auto" container>
+      <Grid sx={{ ml: "auto", mr: "10px" }}>
         <IconButton
           disableRipple
           size="small"
@@ -317,11 +304,9 @@ export const MonthHeader = ({
             "&:hover": {
               backgroundColor: theme.palette.grey[100],
             },
-
             "&.Mui-disabled": {
               backgroundColor: "transparent",
             },
-
             "&.Mui-upon-secondary-bg": {
               "&:hover": {
                 backgroundColor: theme.palette.grey[200],
@@ -336,7 +321,7 @@ export const MonthHeader = ({
             }}
           />
         </IconButton>
-      </Grid2>
+      </Grid>
     </>
   );
 };

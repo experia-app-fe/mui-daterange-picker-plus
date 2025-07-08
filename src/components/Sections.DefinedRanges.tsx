@@ -8,7 +8,7 @@ import {
   ListItemText,
   alpha,
   useTheme,
-  Unstable_Grid2 as Grid2,
+  Grid,
 } from "@mui/material";
 import type { DateRange, DefinedRange } from "../types/utils";
 
@@ -36,72 +36,74 @@ export const DefinedRanges: React.FunctionComponent<DefinedRangesProps> = ({
 
   return (
     <>
-      <Grid2 xs="auto">
-        <Box
-          height="54px"
-          sx={{
-            backgroundColor: alpha(theme.palette.grey[400], 0.1),
-          }}
-        ></Box>
-      </Grid2>
-      <Grid2 xs>
-        <List
-          sx={{
-            pt: "10px",
-          }}
-        >
-          {ranges.map((range, idx) => (
-            <ListItem
-              disablePadding
-              key={idx}
-              onClick={() => setRange(range)}
-              sx={[
-                isSameRange(range, selectedRange)
-                  ? {
-                      backgroundColor: alpha(theme.palette.grey[600], 0.1),
-                    }
-                  : {},
-              ]}
-            >
-              <ListItemButton
-                disableRipple
-                dense
-                sx={{
-                  p: {
-                    xs: "8px",
-                    md: "12px",
-                  },
-                  height: "32px",
-                  ".mui-tlelie-MuiListItemText-root": {
-                    my: 0,
-                  },
-                }}
+      <Grid container>
+        <Grid sx={{ flex: "0 0 auto" }}>
+          <Box
+            height="54px"
+            sx={{
+              backgroundColor: alpha(theme.palette.grey[400], 0.1),
+            }}
+          ></Box>
+        </Grid>
+        <Grid sx={{ flex: 1 }}>
+          <List
+            sx={{
+              pt: "10px",
+            }}
+          >
+            {ranges.map((range, idx) => (
+              <ListItem
+                disablePadding
+                key={idx}
+                onClick={() => setRange(range)}
+                sx={[
+                  isSameRange(range, selectedRange)
+                    ? {
+                        backgroundColor: alpha(theme.palette.grey[600], 0.1),
+                      }
+                    : {},
+                ]}
               >
-                <ListItemText
-                  primaryTypographyProps={{
-                    sx: [
-                      isSameRange(range, selectedRange)
-                        ? {
-                            color: alpha(theme.palette.grey[800], 1),
-                          }
-                        : {
-                            color: alpha(theme.palette.grey[600], 1),
-                          },
-                      {
-                        fontFamily: "Roboto",
-                        fontSize: 13,
-                        fontWeight: 400,
-                      },
-                    ],
+                <ListItemButton
+                  disableRipple
+                  dense
+                  sx={{
+                    p: {
+                      xs: "8px",
+                      md: "12px",
+                    },
+                    height: "32px",
+                    ".mui-tlelie-MuiListItemText-root": {
+                      my: 0,
+                    },
                   }}
                 >
-                  {range.label}
-                </ListItemText>
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Grid2>
+                  <ListItemText
+                    primaryTypographyProps={{
+                      sx: [
+                        isSameRange(range, selectedRange)
+                          ? {
+                              color: alpha(theme.palette.grey[800], 1),
+                            }
+                          : {
+                              color: alpha(theme.palette.grey[600], 1),
+                            },
+                        {
+                          fontFamily: "Roboto",
+                          fontSize: 13,
+                          fontWeight: 400,
+                        },
+                      ],
+                    }}
+                  >
+                    {range.label}
+                  </ListItemText>
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Grid>
+      </Grid>
     </>
   );
 };

@@ -6,7 +6,7 @@ import {
   Typography,
   alpha,
   useTheme,
-  Unstable_Grid2 as Grid2,
+  Grid,
 } from "@mui/material";
 import type { SelectChangeEvent, SvgIconProps } from "@mui/material";
 import { differenceInCalendarMonths } from "date-fns";
@@ -142,7 +142,7 @@ export const Sections = (props: SectionsProps) => {
   }, [selectedRangeObj, dateRange]);
 
   return (
-    <Grid2
+    <Grid
       container
       sx={{
         borderRadius: "16px",
@@ -150,12 +150,11 @@ export const Sections = (props: SectionsProps) => {
         overflow: "hidden",
       }}
     >
-      <Grid2
-        xs="auto"
+      <Grid
         container
-        direction={"column"}
+        direction="column"
         className="DRP-Defined-Ranges"
-        display={{ xs: "none", md: hideDefaultRanges ? "none" : "flex" }}
+        sx={{ display: { xs: "none", md: hideDefaultRanges ? "none" : "flex" } }}
       >
         {/* Defined Ranges Selection ( MD+ ) */}
         <DefinedRanges
@@ -163,37 +162,30 @@ export const Sections = (props: SectionsProps) => {
           ranges={ranges}
           setRange={handleClickDefinedRange}
         />
-      </Grid2>
+      </Grid>
 
       {/* Divider for Defined Ranges ( MD+ )*/}
-      <Grid2
-        xs="auto"
-        display={{ xs: "none", md: hideDefaultRanges ? "none" : "block" }}
+      <Grid
+        sx={{ display: { xs: "none", md: hideDefaultRanges ? "none" : "block" } }}
       >
         <Divider orientation="vertical" />
-      </Grid2>
+      </Grid>
 
-      <Grid2 xs container direction={"column"}>
+      <Grid container direction="column">
         {/* Defined Ranges Selection ( MD- ) */}
-        <Grid2
-          display={{ xs: hideDefaultRanges ? "none" : "flex", md: "none" }}
+        <Grid
           container
           height="48px"
-          alignItems={"center"}
+          alignItems="center"
           px="16px"
-          sx={{ backgroundColor: alpha(theme.palette.grey[400], 0.1) }}
+          sx={{ display: { xs: hideDefaultRanges ? "none" : "flex", md: "none" }, backgroundColor: alpha(theme.palette.grey[400], 0.1) }}
         >
-          <Grid2
-            xs={12}
+          <Grid
             container
-            justifyContent={"space-between"}
-            alignItems={"center"}
+            justifyContent="space-between"
+            alignItems="center"
           >
-            <Typography
-              sx={{
-                fontSize: "14px",
-              }}
-            >
+            <Typography sx={{ fontSize: "14px" }}>
               {labels?.predefinedRanges || "Quick Select"}
             </Typography>
 
@@ -210,9 +202,7 @@ export const Sections = (props: SectionsProps) => {
                 IconComponent={(props) => (
                   <KeyboardArrowDown
                     fontSize="small"
-                    sx={{
-                      fill: theme.palette.grey[400],
-                    }}
+                    sx={{ fill: theme.palette.grey[400] }}
                     {...props}
                   />
                 )}
@@ -241,11 +231,7 @@ export const Sections = (props: SectionsProps) => {
                 {ranges.map((range) => {
                   return (
                     <MenuItem key={range.label} value={range.label}>
-                      <Typography
-                        sx={{
-                          fontSize: "14px",
-                        }}
-                      >
+                      <Typography sx={{ fontSize: "14px" }}>
                         {range.label}
                       </Typography>
                     </MenuItem>
@@ -253,16 +239,16 @@ export const Sections = (props: SectionsProps) => {
                 })}
               </Select>
             </FormControl>
-          </Grid2>
-        </Grid2>
+          </Grid>
+        </Grid>
 
         {/* Divider for Defined Ranges ( MD- )*/}
-        <Grid2 display={{ xs: "block", md: "none" }}>
+        <Grid sx={{ display: { xs: "block", md: "none" } }}>
           <Divider />
-        </Grid2>
+        </Grid>
 
         {/* Dual Calender ( MD- ) */}
-        <Grid2 container display={{ xs: "flex", md: "none" }}>
+        <Grid container sx={{ display: { xs: "flex", md: "none" } }}>
           <SingleCalender
             firstMonth={firstMonth}
             secondMonth={secondMonth}
@@ -272,10 +258,10 @@ export const Sections = (props: SectionsProps) => {
             hideOutsideMonthDays={hideOutsideMonthDays}
             locale={locale}
           />
-        </Grid2>
+        </Grid>
 
         {/* Dual Calender ( MD+ ) */}
-        <Grid2 flex={1} display={{ xs: "none", md: "flex" }} container>
+        <Grid flex={1} container sx={{ display: { xs: "none", md: "flex" } }}>
           <DuelCalender
             firstMonth={firstMonth}
             secondMonth={secondMonth}
@@ -286,35 +272,25 @@ export const Sections = (props: SectionsProps) => {
             hideOutsideMonthDays={hideOutsideMonthDays}
             locale={locale}
           />
-        </Grid2>
+        </Grid>
 
         {/* Footer With Divider Section (ALL) */}
         {footerRequired ? (
           <>
             {/* Divider for Footer ( All )*/}
-            <Grid2 display={hideActionButtons ? "none" : "block"}>
+            <Grid sx={{ display: hideActionButtons ? "none" : "block" }}>
               <Divider />
-            </Grid2>
+            </Grid>
 
             {/* Footer Section (ALL) */}
-            <Grid2
-              display={hideActionButtons ? "none" : "flex"}
-              xs="auto"
+            <Grid
               container
-              alignItems={{
-                xs: "normal",
-                md: "center",
-              }}
-              justifyContent={{
-                xs: "center",
-                md: "flex-end",
-              }}
-              direction={{
-                xs: "column",
-                md: "row",
-              }}
+              alignItems={{ xs: "normal", md: "center" }}
+              justifyContent={{ xs: "center", md: "flex-end" }}
+              direction={{ xs: "column", md: "row" }}
               p="16px"
               gap={"16px"}
+              sx={{ display: hideActionButtons ? "none" : "flex" }}
             >
               <Footer
                 startDate={startDate}
@@ -325,10 +301,10 @@ export const Sections = (props: SectionsProps) => {
                 onSubmit={handlers.handleClickSubmit}
                 RangeSeparatorIcons={RangeSeparatorIcons}
               />
-            </Grid2>
+            </Grid>
           </>
         ) : null}
-      </Grid2>
-    </Grid2>
+      </Grid>
+    </Grid>
   );
 };
